@@ -39,7 +39,7 @@ Most GET request URLs for API querying have three or four components:
 
 4. *Response Format*: a character string indicating how the response should be formatted; usually one of .csv, .json, or .xml
 
-Let's begin by getting an individual API key. Remember, this key is unique to you, and you'll only need to request a key the first time you ever use a new API. Click [here](https://developer.nytimes.com/get-started) and follow the isntructions to request a key.
+Let's begin by getting an individual API key. Remember, this key is unique to you, and you'll only need to request a key the first time you ever use a new API. Click [here](https://developer.nytimes.com/get-started) and follow the instructions to request a key. (Call your "app" *ps31101* or something similar.)
 
 Next, let's go ahead and store the these values as variables:
 

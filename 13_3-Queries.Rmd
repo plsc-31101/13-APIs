@@ -2,12 +2,13 @@
 title: "API Queries"
 author: "PLSC 31101"
 date: "Fall 2020"
-output: html_document
+output:
+  html_document: default
 ---
 
 ## Writing API Queries
 
-If no wrapper package is available, we have to write our own API query, and format the response ourslves using R. This is trickier, but definitely do-able.
+If no wrapper package is available, we have to write our own API query, and format the response ourselves using R. This is trickier, but definitely do-able.
 
 In this unit, we'll practice constructing our own API queries using the New York Time's `Article API`. This API provides metadata (title, date, summary, etc) on all of New York Times articles.
 
@@ -38,7 +39,9 @@ Most GET request URLs for API querying have three or four components:
 
 4. *Response Format*: a character string indicating how the response should be formatted; usually one of .csv, .json, or .xml
 
-Let's go ahead and store the these values as variables:
+Let's begin by getting an individual API key. Remember, this key is unique to you, and you'll only need to request a key the first time you ever use a new API. Click [here](https://developer.nytimes.com/get-started) and follow the isntructions to request a key.
+
+Next, let's go ahead and store the these values as variables:
 
 ```{r}
 key <- # YOUR CODE HERE

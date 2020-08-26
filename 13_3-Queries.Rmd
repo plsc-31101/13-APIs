@@ -8,7 +8,7 @@ output:
 
 ## Writing API Queries
 
-If no wrapper package is available, we have to write our own API query, and format the response ourselves using R. This is trickier, but definitely do-able.
+If no wrapper package is available, we have to write our own API query, and format the response ourslves using R. This is trickier, but definitely do-able.
 
 In this unit, we'll practice constructing our own API queries using the New York Time's `Article API`. This API provides metadata (title, date, summary, etc) on all of New York Times articles.
 
@@ -39,12 +39,14 @@ Most GET request URLs for API querying have three or four components:
 
 4. *Response Format*: a character string indicating how the response should be formatted; usually one of .csv, .json, or .xml
 
-Let's begin by getting an individual API key. Remember, this key is unique to you, and you'll only need to request a key the first time you ever use a new API. Click [here](https://developer.nytimes.com/get-started) and follow the instructions to request a key. (Call your "app" *ps31101* or something similar.)
+Let's go ahead and store the these values as variables:
 
-Next, let's go ahead and store the these values as variables:
+```{r include=FALSE}
+key <- "Onz0BobMTn2IRJ7krcT5RXHknkGLqiaI"
+```
 
 ```{r}
-key <- # YOUR CODE HERE
+#key <- "YOURKEY HERE"
 base.url <- "http://api.nytimes.com/svc/search/v2/articlesearch.json"
 search_term <- "John Mearsheimer"
 ```
@@ -138,8 +140,7 @@ First, let's write a function that passes a search term and a page number, and r
 
 ```{r error = F, message = F}
 nytapi <- function(term = NULL, n){
-    base.url = "http://api.nytimes.com/svc/search/v2/articlesearch.json" 
-    key = # YOUR CODE HERE
+    base.url = "http://api.nytimes.com/svc/search/v2/articlesearch.json"
     
     # Send GET request
     r <- GET(base.url, query = list(`q` = term,
@@ -163,7 +164,6 @@ Now, we're ready to iterate over each page. First, let's review what've done so 
 ```{r}
 # set key and base
 base.url = "http://api.nytimes.com/svc/search/v2/articlesearch.json" 
-key = # YOUR CODE HERE
 search_term = "John Mearsheimer" #change me
   
 # Send GET request

@@ -90,8 +90,17 @@ Using the documentation for `search_tweets` as a guide, try pulling the 2,000 mo
 
 2. Identify the user that has used either the hashtag or the string in the greatest number of tweets -- where is this user from?
 
-```{r}
-# YOUR CODE HERE
+```{r, message=FALSE}
+# solutions
+duke <- search_tweets(
+  q = ' #DukeEllington OR "Duke Ellington" ',
+  n = 2000,
+  include_rts = FALSE
+)
+
+duke %>%
+  count(user_id, location) %>%
+  arrange(desc(n))
 ```
 
 ### Rate limits
@@ -197,28 +206,28 @@ stream_tweets(
 ## read in the data as a tidy tbl data frame
 djt <- parse_stream("tweetsabouttrump.json")
 ```
-### More challenges
-
-Collect some twitter data of interest using the `rtweet` package! Or, if you would prefer something more guided....
 
 #### Challenge 2.
 
 Pick your favorite musical artist and collect the 1000 most recent tweets they are mentioned in (either by their handle or plain text). What is the most frequently used hashtag in these tweets, other than #artistname? 
 
-**HINT** To simplify this challenge, exclude Tweets with more than one hashtag using:
-
 ```{r}
-# hint -- filter out tweets with multiple hashtags
-music_tweets %>%
+music <- search_tweets(
+  q = '@iamcardib OR "cardi b"',
+  n = 1000,
+  include_rts = FALSE
+)
+
+music %>%
   mutate(hashtags = as.character(hashtags)) %>%
   filter(!is.na(hashtags),
-         !str_detect(hashtags, "c\\("))
-
-
-# YOUR CODE HERE
+         !str_detect(hashtags, "c\\(")) %>%
+  count(hashtags) %>%
+  arrange(desc(n))
 ```
 
 #### Challenge 3. 
+
 Run the code below to by pull the 1,000 most recent tweets from 5 UChicago faculty members:
 
 ```{r}
@@ -232,6 +241,12 @@ profs1000 <- get_timeline(
 Which professors in the `prof` data their iPhone to tweet? What percentage of their total tweets were sent from their iPhone?
 
 ```{r}
-# YOUR CODE HERE
+profs1000 %>%
+  count(screen_name, source) %>%
+  arrange(desc(n)) %>%
+  group_by(screen_name) %>%
+  mutate(total_n = sum(n)) %>%
+  mutate(percentage = n / total_n) %>%
+  filter(source == "Twitter for iPhone")
 ```
 

@@ -80,7 +80,6 @@ profs1000 %>%
 ```
 
 
-
 ### API Queries
 
 #### Challenge 1: Adding a date range {-}

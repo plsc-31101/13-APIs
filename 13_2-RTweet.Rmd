@@ -211,22 +211,20 @@ djt <- parse_stream("tweetsabouttrump.json")
 
 Pick your favorite musical artist and collect the 1000 most recent tweets they are mentioned in (either by their handle or plain text). What is the most frequently used hashtag in these tweets, other than #artistname? 
 
-```{r}
-music <- search_tweets(
-  q = '@iamcardib OR "cardi b"',
-  n = 1000,
-  include_rts = FALSE
-)
+**HINT** To simplify this challenge, exclude Tweets with more than one hashtag using:
 
-music %>%
+```{r}
+# hint -- filter out tweets with multiple hashtags
+music_tweets %>%
   mutate(hashtags = as.character(hashtags)) %>%
   filter(!is.na(hashtags),
-         !str_detect(hashtags, "c\\(")) %>%
-  count(hashtags) %>%
-  arrange(desc(n))
+         !str_detect(hashtags, "c\\("))
+
+
+# YOUR CODE HERE
 ```
 
-#### Challenge 3. 
+#### Challenge 3.
 
 Run the code below to by pull the 1,000 most recent tweets from 5 UChicago faculty members:
 
@@ -241,12 +239,6 @@ profs1000 <- get_timeline(
 Which professors in the `prof` data their iPhone to tweet? What percentage of their total tweets were sent from their iPhone?
 
 ```{r}
-profs1000 %>%
-  count(screen_name, source) %>%
-  arrange(desc(n)) %>%
-  group_by(screen_name) %>%
-  mutate(total_n = sum(n)) %>%
-  mutate(percentage = n / total_n) %>%
-  filter(source == "Twitter for iPhone")
+# YOUR CODE HERE
 ```
 

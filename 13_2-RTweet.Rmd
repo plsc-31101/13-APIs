@@ -32,7 +32,6 @@ Let's go ahead and load `RTweet` along with some other helpful packages:
 library(tidyverse)
 library(rtweet)
 library(lubridate)
-library(knite)
 
 # Run this line and approve the browser pop-up
 search_tweets("Chicago Power Outage")
@@ -91,16 +90,7 @@ Using the documentation for `search_tweets` as a guide, try pulling the 2,000 mo
 2. Identify the user that has used either the hashtag or the string in the greatest number of tweets -- where is this user from?
 
 ```{r, message=FALSE}
-# solutions
-duke <- search_tweets(
-  q = ' #DukeEllington OR "Duke Ellington" ',
-  n = 2000,
-  include_rts = FALSE
-)
-
-duke %>%
-  count(user_id, location) %>%
-  arrange(desc(n))
+# YOUR CODE HERE
 ```
 
 ### Rate limits
@@ -110,11 +100,11 @@ Twitter rate limits cap the number of search results returned to 18,000 every 15
 ```{r eval = F}
 ## search for 250,000 tweets containing the word "data""
 
-# many_tweets <- search_tweets(
-#   q = "data", 
-#   n = 250000, 
-#   retryonratelimit = TRUE
-# )
+many_tweets <- search_tweets(
+  q = "data", 
+  n = 250000, 
+  retryonratelimit = TRUE
+)
 ```
 
 ### Search by language
@@ -179,7 +169,7 @@ By default, `stream_tweets` will stream for 30 seconds and return a random sampl
 
 For example, let's say we wanted to stream a random rample (~1%) of tweets mentioning "realDonaldTrump" or "Trump".
 
-```{r}
+```{r eval = F}
 ## random sample for 30 seconds (default)
 stream1 <- stream_tweets(q = "realdonaldtrump, trump")
 
@@ -194,7 +184,7 @@ Given a lengthy parsing process, you may want to stream tweets into `json` files
 
 To ensure the stream automatically reconnects following any interruption prior to the specified stream time, use stream_tweets2().
 
-```{r}
+```{r eval = F}
 ## Stream for a week (60 sec * 60 min * 24 hours * 7 days)
 stream_tweets(
   q = "realdonaldtrump, trump",
@@ -213,7 +203,7 @@ Pick your favorite musical artist and collect the 1000 most recent tweets they a
 
 **HINT** To simplify this challenge, exclude Tweets with more than one hashtag using:
 
-```{r}
+```{r eval = F}
 # hint -- filter out tweets with multiple hashtags
 music_tweets %>%
   mutate(hashtags = as.character(hashtags)) %>%

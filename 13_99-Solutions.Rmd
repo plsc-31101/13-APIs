@@ -10,7 +10,6 @@ output: html_document
 library(tidyverse)
 library(rtweet)
 library(lubridate)
-library(kableExtra)
 ```
 
 ### RTweet
@@ -84,7 +83,7 @@ profs1000 %>%
 
 #### Challenge 1: Adding a date range {-}
 
-```{r}
+```{r eval = F}
 r <- GET(base.url, query = list(`q` = search_term,
                                 `api-key` = key,
                                 `begin_date` = '20050101',
@@ -93,7 +92,7 @@ r <- GET(base.url, query = list(`q` = search_term,
 
 #### Challenge 2: Specifying a results page {-}
 
-```{r}
+```{r eval = F}
 r <- GET(base.url, query = list(`q` = search_term,
                                 `api-key` = key,
                                 `page` = 1))

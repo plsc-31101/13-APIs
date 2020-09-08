@@ -20,6 +20,7 @@ Load the following packages to get started:
 
 ```{r message=F}
 library(tidyverse)
+library(stringr)
 library(httr)
 library(jsonlite)
 library(lubridate)
@@ -84,7 +85,7 @@ We can read the content of the server’s response using the `content()` functio
 
 ```{r} 
 response <- httr::content(r, "text")
-substr(response, start = 1, stop = 1000)
+str_sub(response, 1, 1000)
 ```
 
 What you see here is JSON text, encoded as plain text. JSON stands for "Javascript object notation." Think of JSON like a nested array built on key/value pairs. 

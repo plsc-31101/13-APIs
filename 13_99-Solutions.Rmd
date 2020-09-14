@@ -14,16 +14,16 @@ library(lubridate)
 
 ### RTweet
 
-#### Challenge 1 (Hashtag challenge)
+#### Challenge 1: Hashtag Challenge. {-}
 
 Using the documentation for `search_tweets` as a guide, try pulling the 2,000 most recent tweets that include `#DukeEllington` OR `"Duke Ellington"` -- be sure to exclude retweets from the query.
 
-1. Why didn't your query return 2,000 results?
+1. Why did your query not return 2,000 results?
 
 2. Identify the user that has used either the hashtag or the string in the greatest number of tweets -- where is this user from?
 
 ```{r, message=FALSE}
-# solutions
+# Solutions
 duke <- search_tweets(
   q = ' #DukeEllington OR "Duke Ellington" ',
   n = 2000,
@@ -35,9 +35,9 @@ duke %>%
   arrange(desc(n))
 ```
 
-#### Challenge 2.
+#### Challenge 2. {-}
 
-Pick your favorite musical artist and collect the 1000 most recent tweets they are mentioned in (either by their handle or plain text). What is the most frequently used hashtag in these tweets, other than #artistname? 
+Pick your favorite musical artist and collect the 1,000 most recent tweets they are mentioned in (either by their handle or plain text). What is the most frequently used hashtag in these tweets other than #artistname? 
 
 ```{r}
 music <- search_tweets(
@@ -54,7 +54,7 @@ music %>%
   arrange(desc(n))
 ```
 
-#### Challenge 3. 
+#### Challenge 3. {-}
 
 Run the code below to by pull the 1,000 most recent tweets from 5 UChicago faculty members:
 
@@ -66,7 +66,7 @@ profs1000 <- get_timeline(
 )
 ```
 
-Which professors in the `prof` data their iPhone to tweet? What percentage of their total tweets were sent from their iPhone?
+Which professors in the `profs1000` data use their iPhone to tweet? What percentage of their total tweets were sent from their iPhone?
 
 ```{r}
 profs1000 %>%
@@ -81,7 +81,7 @@ profs1000 %>%
 
 ### API Queries
 
-#### Challenge 1: Adding a date range {-}
+#### Challenge 1: Adding a Date Range. {-}
 
 ```{r eval = F}
 r <- GET(base.url, query = list(`q` = search_term,
@@ -90,7 +90,7 @@ r <- GET(base.url, query = list(`q` = search_term,
                                 `end_date` = '20051231'))
 ```
 
-#### Challenge 2: Specifying a results page {-}
+#### Challenge 2: Specifying a Results Page. {-}
 
 ```{r eval = F}
 r <- GET(base.url, query = list(`q` = search_term,

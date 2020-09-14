@@ -81,7 +81,7 @@ We can also use `RTweet` to explore certain hashtags or text strings.
 
 Let's say we are interested in Duke Ellington. We can use `search_tweets` to pull the most recent `n` number of tweets that include the hashtag `#DukeEllington` or the string `"Duke Ellington"`. 
 
-#### Challenge 1 (Hashtag Challenge).
+#### Challenge 1: Hashtag Challenge. {-}
 
 Using the documentation for `search_tweets` as a guide, try pulling the 2,000 most recent tweets that include `#DukeEllington` OR `"Duke Ellington"` -- be sure to exclude retweets from the query.
 
@@ -197,7 +197,7 @@ stream_tweets(
 djt <- parse_stream("tweetsabouttrump.json")
 ```
 
-#### Challenge 2.
+#### Challenge 2. {-}
 
 Pick your favorite musical artist and collect the 1,000 most recent tweets they are mentioned in (either by their handle or plain text). What is the most frequently used hashtag in these tweets other than #artistname? 
 
@@ -214,7 +214,7 @@ music_tweets %>%
 # YOUR CODE HERE
 ```
 
-#### Challenge 3.
+#### Challenge 3. {-}
 
 Run the code below to pull the 1,000 most recent tweets from 5 UChicago faculty members:
 

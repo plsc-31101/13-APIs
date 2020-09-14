@@ -165,7 +165,7 @@ cnn$followers_count
 
 In addition to accessing Twitter’s REST API (e.g., search_tweets and get_timeline), `rtweet` makes it possible to capture **live streams** of Twitter data using the `stream_tweets()` function. 
 
-By default, `stream_tweets` will stream for 30 seconds and return a random sample of tweets. To modify the default settings, `stream_tweets` accepts several parameters, including `q` (query used to filter tweets), `timeout` (duration or time of stream), and `file_name` (path name for saving raw `json` data).
+By default, `stream_tweets` will stream for 30 seconds and return a random sample of tweets. To modify the default settings, `stream_tweets` accepts several parameters, including `q` (query used to filter tweets), `timeout` (duration or time of stream), and `file_name` (path name for saving raw JSON data).
 
 For example, let's say we wanted to stream a random rample (~1%) of tweets mentioning "realDonaldTrump" or "Trump".
 
@@ -180,7 +180,7 @@ stream2 <- stream_tweets(q = "realdonaldtrump, trump",
 
 Barring any disconnection or disruption of the API, streaming will occupy your current R session until the specified time has elapsed. It is possible to start a new session — streaming itself usually is not very memory intensive — but operations may drag a bit during the *parsing* process, which takes place immediately after streaming ends. 
 
-Given a lengthy parsing process, you may want to stream tweets into `json` files upfront and parse those files later on. To do this, simply add `parse = FALSE` and make sure you provide a path (file name) to a location you can find later. 
+Given a lengthy parsing process, you may want to stream tweets into JSON files upfront and parse those files later on. To do this, simply add `parse = FALSE` and make sure you provide a path (file name) to a location you can find later. 
 
 To ensure the stream automatically reconnects following any interruption prior to the specified stream time, use stream_tweets2().
 
